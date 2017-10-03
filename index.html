@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="nav/nav.css">
+    <title>Inline Nav</title>
+</head>
+<body>
+    <nav>
+    <ul>
+        <li class="is-menu">
+            <a>Shots</a>
+            <ul>
+                <li><a>Popular</a></li>
+                <li><a>Recent</a></li>
+                <li><a>Debuts</a></li>
+                <li><a>Teams</a></li>
+                <li><a>Playoffs</a></li>
+            </ul>
+        </li>
+        <li class="is-link"><a>Designers</a></li>
+        <li class="is-link"><a>Blog</a></li>
+        <li class="is-link"><a>Meetups</a></li>
+    </ul>
+    </nav>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="nav/nav.js"></script>
+    <script>
+        $("nav").inlineNav();
+    </script>
+</body>
+</html>
