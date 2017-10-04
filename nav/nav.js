@@ -27,7 +27,6 @@
     const CLASS_ROOT = 'is-root';
     const CLASS_RIGHT = "is-right";
     const CLASS_MIDDLE = "is-middle";
-    const CLASS_HIDDEN = "is-hidden";
     const CLASS_TRANSITION = "is-transition"
 
     InlineNav.prototype = {
@@ -44,13 +43,13 @@
             this.$currentMenu = $(menus[0]);
 
             this.$backButton = $("<div></div>")
-                .addClass('is-back').addClass(CLASS_HIDDEN);
+                .addClass('is-back');
             this.$backButton.data("nav", this);
             this.$backButton.appendTo(this.$el);
 
             this.$backButton.click(function() {
                 var nav = $(this).data("nav");
-                nav.makeMenu(nav.$parentMenu, false);
+                nav.ascend(nav.$parentMenu);
             }); 
 
             for (var i = 0; i < menus.length; i++) {
@@ -73,21 +72,29 @@
                     });
 
                     $parentItem.click(function() {
-                        $(this).data("nav").makeMenu($(this).data("childMenu"), true);
+                        var nav = $(this).data("nav");
+                        var $childMenu = $(this).data("childMenu");
+                        nav.descend($childMenu);
                     });
                 }
 
                 $menu.appendTo(this.$el);
             }
             
-            this.makeMenu(this.$currentMenu, true);
+            this.descend(this.$currentMenu);
             this.$el.addClass(CLASS_SHOW);
         },
+
+        descend: function($newMenu) { this.makeMenu($newMenu, true); },
+
+        ascend: function($newMenu) { this.makeMenu($newMenu, false); },
 
         makeMenu: function($newMenu, descend) {
             this.$el.css("width", $newMenu.width());
 
             if (descend) {
+
+                console.log('descend');
 
                 $newMenu.removeClass(CLASS_TRANSITION)
                         .addClass(CLASS_RIGHT)
@@ -106,6 +113,8 @@
 
             } else {
 
+                console.log('ascend');
+                
                 $newMenu.removeClass(CLASS_TRANSITION)
                         .addClass(CLASS_LEFT)
                         .addClass(CLASS_TRANSITION)
@@ -118,15 +127,16 @@
                                      .removeClass(CLASS_MIDDLE);
                 }
                 
+                console.log(this.$parentMenu);
                 this.$currentMenu = this.$parentMenu;
                 this.$parentMenu = this.$currentMenu.data("parentMenu");
 
             }
 
             if (this.$currentMenu.data("parentMenu"))
-                this.$backButton.removeClass(CLASS_HIDDEN);
+                this.$backButton.addClass(CLASS_SHOW);
             else
-                this.$backButton.addClass(CLASS_HIDDEN);
+                this.$backButton.removeClass(CLASS_SHOW);
         } 
 
     };

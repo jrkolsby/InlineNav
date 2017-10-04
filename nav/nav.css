@@ -19,23 +19,26 @@ nav {
 
 nav ul {
     position: absolute;
+    margin: 0;
+    padding: 0;
+
     left: 0;
     top: 50%;
-    transform: translate(0,-50%);
+    transform: translateY(-50%);
 }
 
 nav ul.is-transition {
-    transition: 0.2s left ease,
+    transition: 0.2s transform ease,
                 0.2s opacity ease;
 }
 
-nav ul.is-middle { left: 0; }
-nav ul.is-left { left: -40px; }
-nav ul.is-right { left: 40px; }
+nav ul.is-middle { transform: translateY(-50%) translateX(0) }
+nav ul.is-left { transform: translateY(-50%) translateX(-20px) }
+nav ul.is-right { transform: translateY(-50%) translateX(20px) }
 
 nav ul.is-left,
 nav ul.is-right,
-nav div.is-hidden {
+nav div.is-back {
     opacity: 0;
     pointer-events: none;
 }
@@ -59,16 +62,22 @@ nav .is-back {
     display: block;
     cursor: pointer;
     position: absolute;
+    z-index: 9999;
     background: url('ui/arrow_left.svg');
     background-size: 20px 20px;
     height: 20px;
     width: 20px;
+
     left: -30px;
     top: 50%;
-    transform: translate(0, -50%);
+    transform: translateY(-50%) translateX(10px);
     
-    transition: 0.2s left ease,
-                0.2s opacity ease;
+    transition: 0.1s transform ease,
+                0.1s opacity ease;
 }
 
-nav div.is-hidden { left: -10px; }
+nav div.is-show {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+    pointer-events: all;
+}
