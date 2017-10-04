@@ -13,31 +13,41 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(0, -50%);
+            transform: translate(-50%, -50%);
         }
+        .one { font-size: 1.6em; }
+        .two { font-size: 1.4em; }
+        .three { font-size: 1.2em; }
+        .four { font-size: 1.0em; }
+        .five { font-size: 0.8em; }
+
     </style>
     <title>Inline Nav</title>
 </head>
 <body>
     <nav>
-        <ul>
-            <li>
-                <a>Shots</a>
+        <ul class="is-root">
+            <li class="one">Products
                 <ul>
-                    <li><a>Popular</a></li>
-                    <li>
-                        <a>Debuts</a>
-                        <ul>
-                            <li>Hey</li>
-                            <li>Whats</li>
-                            <li>Up</li>
-                        </ul>
-                    </li>
+                    <li class="one">Web</li>
+                    <li class="three">Applications</li>
                 </ul>
             </li>
-            <li><a>Designers</a></li>
-            <li><a>Blog</a></li>
-            <li><a>Meetups</a></li>
+            <li class="one">Services
+                <ul>
+                    <li class="one">Design</li>
+                    <li class="two">Development</li>
+                    <li class="three">Inquiries</li>
+                </ul>
+            </li>
+            <li class="one">Blog
+                <ul>
+                    <li class="one">June</li>
+                    <li class="two">July</li>
+                    <li class="two">August</li>
+                    <li class="four">Archives</li>
+                </ul>
+            </li>
         </ul>
     </nav>
 

@@ -80,7 +80,7 @@
 
                 $menu.appendTo(this.$el);
             }
-            
+
             this.descend(this.$currentMenu);
             this.$el.addClass(CLASS_SHOW);
         },

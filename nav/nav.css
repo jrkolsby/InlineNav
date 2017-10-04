@@ -18,6 +18,15 @@ nav {
 }
 
 nav ul {
+    display: none;
+}
+
+nav ul.is-root,
+nav.is-show ul {
+    display: block;
+}
+
+nav ul {
     position: absolute;
     margin: 0;
     padding: 0;
