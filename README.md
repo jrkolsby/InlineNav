@@ -2,6 +2,8 @@
 
 A small plugin for an SEO-friendly navigation based on unordered lists.
 
+![demo][]
+
 ## Usage
 
 HTML:
