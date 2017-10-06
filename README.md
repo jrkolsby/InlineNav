@@ -2,7 +2,7 @@
 
 A small plugin for an SEO-friendly navigation based on unordered lists.
 
-![demo](https://cdn.dribbble.com/users/183975/screenshots/3852634/untitled-1.gif)
+<img src="https://cdn.dribbble.com/users/183975/screenshots/3852634/untitled-1.gif" alt="Demo on Dribbble" width="400" height="300">
 
 ## Usage
 
